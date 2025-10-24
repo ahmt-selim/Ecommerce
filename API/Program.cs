@@ -1,9 +1,17 @@
+using API.Data;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddDbContext<DataContext>(options =>
+{
+    var config = builder.Configuration;
+    var connectionString = config.GetConnectionString("defaultConnection");
 
+    options.UseSqlite(connectionString);
+});//Uygulama geliştirme aşamasında veya canlı ortamda iken 2 farklı appSettings.Json ile farklı connection stringler yazılabiliyor.
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
