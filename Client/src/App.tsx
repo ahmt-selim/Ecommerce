@@ -1,3 +1,8 @@
+const products = [
+  {name: "product 1", price: 1000},
+  {name: "product 2", price: 1000},
+  {name: "product 3", price: 1000},
+]
 
 function App() {
 
@@ -14,20 +19,23 @@ function Header(){
   );
 }
 function ProductList(){
-  return(
+  return(// Product componentine gönderilen props yani parametre, burada kullanılan isim ile component içindeki isim ile aynı olmalıdır.(product)
     <div>
       <h2>ProductList</h2>
-      <Product/>
-      <Product/>
-      <Product/>
-      <Product/>
+      <Product product={products[0]}/>
+      <Product product={products[1]}/>
+      <Product product={products[2]}/>
     </div>
     
   );
 }
-function Product(){
+function Product(props: any){
   return(
-    <h3>Product</h3>
+    <div>
+      <h3>{props.product.name}</h3>
+      <p>{props.product.price}</p>
+    </div>
+    
   );
 }
 export default App
