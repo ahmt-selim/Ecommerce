@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 function App() {
@@ -22,6 +22,13 @@ const[products, setProducts] = useState([
   {id: 2, name: "product 2", price: 1000, isActive: false},
   {id: 3, name: "product 3", price: 980, isActive: true}
 ]);
+
+useEffect(() => {
+fetch("http://localhost:5067/api/products")
+  .then(response => response.json())
+  .then(data => setProducts(data));
+}, []);
+
 
   function addProduct(){
     setProducts([...products, {id: Date.now(), name: "product 4", price: 1180, isActive: true}]);// 3 nokta ile products içindeki verileri getirir. setProducts ile virgülden sonra eklenen yeni ürünü products'a ekler.

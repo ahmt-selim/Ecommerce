@@ -12,6 +12,9 @@ builder.Services.AddDbContext<DataContext>(options =>
 
     options.UseSqlite(connectionString);
 });//Uygulama geliştirme aşamasında veya canlı ortamda iken 2 farklı appSettings.Json ile farklı connection stringler yazılabiliyor.
+
+builder.Services.AddCors();
+
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
@@ -29,6 +32,11 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors(opt =>//Bu yöntem ile bu servise dışardan hangi urlden gelen isteklerin kabul edileceğini ayarladık. 
+{
+    opt.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000");
+});
 
 app.UseAuthorization();
 
