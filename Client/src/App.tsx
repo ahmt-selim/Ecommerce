@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { IProduct } from "./model/IProduct";
 
 
 function App() {
@@ -17,11 +18,7 @@ function Header(){
 }
 //react da state mantığı: Buradaki products listesinin kullanıldığı fonksiyon veya componentlerde bu liste üzerinde değişiklik yapıldığında otomatik olarak ilgili componenti tekrar render eder.
 function ProductList(){
-const[products, setProducts] = useState([
-  {id: 1, name: "product 1", price: 1000, isActive: true},
-  {id: 2, name: "product 2", price: 1000, isActive: false},
-  {id: 3, name: "product 3", price: 980, isActive: true}
-]);
+const[products, setProducts] = useState<IProduct[]>([]);
 
 useEffect(() => {
 fetch("http://localhost:5067/api/products")
