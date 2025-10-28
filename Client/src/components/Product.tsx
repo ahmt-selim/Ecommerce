@@ -1,3 +1,4 @@
+import { Card, CardMedia } from "@mui/material";
 import { IProduct } from "../model/IProduct";
 
 
@@ -7,15 +8,9 @@ interface Props{
 
 export default function Product({product}: Props){
   return(
-    <>
-    {
-      <div>
-        <h3>{product.name}</h3>
-        <p>{product.price}</p>
-    </div>
-    }
-    
-    </>
+    <Card>
+      <CardMedia sx={{heihgt: 160}} image={`http://localhost:5067/images/${product.imageUrl}`}></CardMedia>
+    </Card>
     
   );
 }

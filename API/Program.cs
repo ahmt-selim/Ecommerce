@@ -33,6 +33,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseStaticFiles();//wwwroot klasmrüne eklediğimiz static resimleri dışarı açabilmek için ekledik. 
+
 app.UseCors(opt =>//Bu yöntem ile bu servise dışardan hangi urlden gelen isteklerin kabul edileceğini ayarladık. 
 {
     opt.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000");
