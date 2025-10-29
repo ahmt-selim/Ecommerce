@@ -14,9 +14,9 @@ export default function ProductList({products}: Props){
     <Grid container spacing={2}>
 
       { products.map((p: IProduct) => (
-        //p.isActive && //Buradaki and operatörü ile p.isActive tru ise şartını ekledik.
+        
         <Grid key={p.id} size={{ xs: 6, md: 6, lg: 3}}>
-        <Product key={p.id} product={p}/>
+          <Product key={p.id} product={p}/>
         </Grid>
       ))}
 
