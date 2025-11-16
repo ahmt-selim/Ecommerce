@@ -1,5 +1,5 @@
 import { ShoppingCart } from "@mui/icons-material";
-import { AppBar, Badge, Box, Button, IconButton, List, ListItem, Stack, Toolbar, Typography } from "@mui/material";
+import { AppBar, Badge, Box, Button, IconButton, Stack, Toolbar, Typography } from "@mui/material";
 import { NavLink } from "react-router";
 
 const links = [
@@ -30,7 +30,7 @@ export default function Header(){
 
         <Stack direction="row">
           {links.map(link => 
-          <Button component={NavLink} to={link.to} sx={navStyles}>{link.title}</Button>
+          <Button key={link.to} component={NavLink} to={link.to} sx={navStyles}>{link.title}</Button>
         )}
         </Stack>
         </Box>
