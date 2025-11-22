@@ -145,3 +145,4 @@ C:\Users\ahmet\OneDrive\Masaüstü\Ecommerce\API\bin\Debug\net9.0\runtimes\win-a
 C:\Users\ahmet\OneDrive\Masaüstü\Ecommerce\API\bin\Debug\net9.0\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\ahmet\OneDrive\Masaüstü\Ecommerce\API\bin\Debug\net9.0\runtimes\win-x86\native\e_sqlite3.dll
 C:\Users\ahmet\OneDrive\Masaüstü\Ecommerce\api\bin\Debug\net9.0\API.staticwebassets.runtime.json
+C:\Users\ahmet\OneDrive\Masaüstü\Ecommerce\api\obj\Debug\net9.0\swae.build.ex.cache
