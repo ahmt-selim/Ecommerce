@@ -19,7 +19,7 @@ public class ErrorController: ControllerBase
         return BadRequest(); //400
     }
 
-    [HttpGet("unauthorizes")]
+    [HttpGet("unauthorized")]
     public IActionResult UnAuthorizedError()
     {
         return Unauthorized(); //401
