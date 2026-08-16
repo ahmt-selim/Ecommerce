@@ -5,7 +5,30 @@ public class Cart
     public int CartId { get; set; }
     public string CustomerId { get; set; } = null!; //db'de null olmayan bir alan olarak ouşturulur.
     public List<CartItem> CartItems { get; set; } = new(); // new() = yeni bir cart oluşturulduğunda null olmaması için eklenir. Her cart oluşturulduğunda item eklemeden newlememek için buraya eklendi. 
+    public void AddItem(Product product, int quantity)
+    {
+        var item = CartItems.Where(c => c.ProductId == product.Id).FirstOrDefault();
+        if(item == null)
+        {
+            CartItems.Add(new CartItem {Product = product, Quantity = quantity});
+        }
+        else
+        {
+            item.Quantity += quantity;
+        }
+    }
+    public void DeleteItem(int productId, int quantity)
+    {
+        var item = CartItems.Where(c => c.ProductId == productId).FirstOrDefault();
 
+        if(item == null) return;
+
+        item.Quantity -= quantity;
+        if(item.Quantity == 0)
+        {
+            CartItems.Remove(item);
+        }
+    }
 }
 
 public class CartItem
