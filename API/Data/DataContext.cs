@@ -10,6 +10,8 @@ public class DataContext: DbContext
     }
     public DbSet<Product> Products => Set<Product>(); //arrow function ile referans verip null olmamasını sağlıyoruz.
 
+    public DbSet<Cart> Carts => Set<Cart>();
+    
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
