@@ -40,7 +40,7 @@ app.UseStaticFiles();//wwwroot klasmrüne eklediğimiz static resimleri dışar�
 
 app.UseCors(opt =>//Bu yöntem ile bu servise dışardan hangi urlden gelen isteklerin kabul edileceğini ayarladık. 
 {
-    opt.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000");
+    opt.AllowAnyHeader().AllowAnyMethod().AllowCredentials().WithOrigins("http://localhost:3000");
 });
 
 app.UseAuthorization();
