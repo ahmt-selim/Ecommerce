@@ -1,22 +1,12 @@
-import { TableContainer, Paper, Table, TableHead, TableRow, TableCell, TableBody, CircularProgress, IconButton } from "@mui/material";
-import { useEffect, useState } from "react"
-import requests from "../../api/requests";
-import { Cart } from "../../model/ICart";
+import { TableContainer, Paper, Table, TableHead, TableRow, TableCell, TableBody, IconButton } from "@mui/material";
 import { Delete } from "@mui/icons-material";
+import { useCartContext } from "../../context/CartContext";
 
 export default function ShoppingCartPAge()
 {
-    const [cart, setCart] = useState<Cart | null>(null);
-    const [loading, setLoading] = useState(true);
+    const{ cart } = useCartContext();
 
-    useEffect(() => {
-        requests.Cart.get()
-            .then(cart => setCart(cart))
-            .catch(error => console.log(error))
-            .finally(() => setLoading(false));
-    }, []);
 
-    if(loading) return <CircularProgress />
 
     if(!cart) return <h1>Sepetinizde ürün yok</h1>
 
