@@ -7,6 +7,7 @@ import { LoadingButton } from "@mui/lab";
 import { AddShoppingCart } from "@mui/icons-material";
 import { useCartContext } from "../../context/CartContext";
 import { toast } from "react-toastify";
+import { currencyTRY } from "../../utils/formatCurrency";
 
 export default function ProductDetailsPage() {
 
@@ -48,7 +49,7 @@ export default function ProductDetailsPage() {
             <Grid size={{ lg: 4,  md: 7, sm: 6, xs: 12}}>
                 <Typography variant="h2">{product.name}</Typography>
                 <Divider sx={{mb:2}} />
-                <Typography variant="h4" color="secondary">{(product.price / 100).toFixed(2)} ₺</Typography>
+                <Typography variant="h4" color="secondary">{currencyTRY.format(product.price)} </Typography>
                 <TableContainer>
                     <Table>
                         <TableBody>
