@@ -7,6 +7,7 @@ import { useState } from "react";
 import requests from "../../api/requests";
 import { LoadingButton } from "@mui/lab";
 import { useCartContext } from "../../context/CartContext";
+import { toast } from "react-toastify";
 
 
 interface Props{
@@ -22,7 +23,10 @@ function handleAddItem(productId: number){
   setLoading(true);
 
   requests.Cart.addItem(productId)
-    .then(cart => setCart(cart))
+    .then(cart => {
+                    setCart(cart);
+                    toast.success("Sepetinize eklendi.")
+                })
     .catch(error => console.log(error))
     .finally(() => setLoading(false));
 }

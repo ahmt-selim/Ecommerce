@@ -4,6 +4,7 @@ import { useCartContext } from "../../context/CartContext";
 import { LoadingButton } from "@mui/lab";
 import { useState } from "react";
 import requests from "../../api/requests";
+import { toast } from "react-toastify";
 
 export default function ShoppingCartPAge()
 {
@@ -70,7 +71,10 @@ export default function ShoppingCartPAge()
               <TableCell align="right">{item.price * item.quantity} ₺</TableCell>
               <TableCell align="right">
                     <IconButton color="error" loading={status.loading && status.id === "del_all" + item.productId} 
-                      onClick={() => handleDeleteItem(item.productId, "del_all" + item.productId, item.quantity)}>
+                      onClick={() => {
+                        handleDeleteItem(item.productId, "del_all" + item.productId, item.quantity)
+                        toast.error("Ürün sepetinizden silindi.")
+                        }}>
                         <Delete />
                     </IconButton>
               </TableCell>
