@@ -1,4 +1,5 @@
 using API.Data;
+using API.Entity;
 using API.Middlewares;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
@@ -15,6 +16,7 @@ builder.Services.AddDbContext<DataContext>(options =>
 });//Uygulama geliştirme aşamasında veya canlı ortamda iken 2 farklı appSettings.Json ile farklı connection stringler yazılabiliyor.
 
 builder.Services.AddCors();
+builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<DataContext>();
 
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi

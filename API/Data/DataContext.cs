@@ -1,13 +1,10 @@
 using API.Entity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace API.Data;
-public class DataContext: DbContext
+public class DataContext(DbContextOptions options) : IdentityDbContext<AppUser, AppRole, string>(options)
 {
-    public DataContext(DbContextOptions options) : base(options)//Buradan DataContext in kullanıldığı Program.cs deki bağlantı kısmına veri gönderdik(options)
-    {
-        
-    }
     public DbSet<Product> Products => Set<Product>(); //arrow function ile referans verip null olmamasını sağlıyoruz.
 
     public DbSet<Cart> Carts => Set<Cart>();
