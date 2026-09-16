@@ -20,7 +20,7 @@ public class AccountController: ControllerBase
     }
 
     [HttpPost("login")]
-    public async Task<IActionResult> Login(LoginDTO model)
+    public async Task<ActionResult<UserDTO>> Login(LoginDTO model)
     {
         var user = await _userManager.FindByNameAsync(model.UserName);
 
@@ -33,7 +33,7 @@ public class AccountController: ControllerBase
 
         if (result)
         {
-            return Ok(new { token = _tokenService.GenerateToken(user) });
+            return Ok(new UserDTO { Token = await _tokenService.GenerateToken(user), Name = user.Name! });
         }
 
         return Unauthorized();
