@@ -4,9 +4,9 @@ import { useParams } from "react-router";
 import { LoadingButton } from "@mui/lab";
 import { AddShoppingCart } from "@mui/icons-material";
 import { currencyTRY } from "../../utils/formatCurrency";
-import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 import { addItemToCart } from "../cart/cartSlice";
 import { fetchProductById, selectProductById } from "./catalogSlice";
+import { useAppDispatch, useAppSelector } from "../../store/store";
 
 export default function ProductDetailsPage() {
 

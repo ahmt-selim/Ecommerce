@@ -1,13 +1,10 @@
 import { TableContainer, Paper, Table, TableHead, TableRow, TableCell, TableBody, IconButton, Alert } from "@mui/material";
 import { AddCircleOutline, Delete, RemoveCircleOutline } from "@mui/icons-material";
 import { LoadingButton } from "@mui/lab";
-import { useState } from "react";
-import requests from "../../api/requests";
-import { toast } from "react-toastify";
 import CartSummary from "./CartSummary";
 import { currencyTRY } from "../../utils/formatCurrency";
-import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
-import { addItemToCart, deleteItemFromCart, setCart } from "./cartSlice";
+import { addItemToCart, deleteItemFromCart } from "./cartSlice";
+import { useAppDispatch, useAppSelector } from "../../store/store";
 
 export default function ShoppingCartPAge()
 {
